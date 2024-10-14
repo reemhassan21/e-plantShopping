@@ -267,9 +267,23 @@ const handlePlantsClick = (e) => {
             </div>
         </div>
         {!showCart? (
-        <div className="product-grid">
+        <div className="product-grid d-flex">
 
+{plantsArray.map((item) => (
+        <div >
+<h1>{item.category}</h1>
 
+{plantsArray.map((item)=>(
+    item.plants.map((item)=>(
+        <div style={{display:"flex", flexDirection:"column", width:"40%"}}>
+<h3>{item.name}</h3>
+<img src={item.image}></img>
+<p>{item.description}</p>
+        </div>
+    ))
+))}
+        </div>
+      ))}
         </div>
  ) :  (
     <CartItem onContinueShopping={handleContinueShopping}/>
